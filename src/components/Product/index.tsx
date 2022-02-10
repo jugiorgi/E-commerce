@@ -10,37 +10,26 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-interface ProductProps {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
-
-const Product: React.FC<ProductProps> = ({
-  id,
-  name,
-  description,
-  price,
-  image,
-  ...rest
-}) => {
+const Product = (product: any) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={image} title={name} />
+      <CardMedia
+        className={classes.media}
+        image={product.image.url}
+        title={product.name}
+      />
       <CardContent>
         <div className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
-            {name}
+            {product.name}
           </Typography>
           <Typography gutterBottom variant="h6" component="h2">
-            {price}
+            {product.price.formatted_with_symbol}
           </Typography>
         </div>
         <Typography variant="body2" color="textSecondary" component="p">
-          {description}
+          {product.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>

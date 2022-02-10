@@ -10,6 +10,8 @@ import {
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 
+import logo from "../../assets/logo.png";
+
 import useStyles from "./styles";
 
 const Navbar: React.FC = () => {
@@ -18,13 +20,23 @@ const Navbar: React.FC = () => {
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography>
+          <Typography variant="h6" className={classes.title} color="inherit">
             <img
-              src="https://toppng.com/uploads/preview/justin-bieber-png-justin-bieber-2016-11562896033zct3saovir.png"
-              alt="ecommerce"
+              src={logo}
+              alt="commerce.js"
               height="25px"
-            />
+              className={classes.image}
+            />{" "}
+            E-Commerce
           </Typography>
+          <div className={classes.grow} />
+          <div className={classes.menuButton}>
+            <IconButton aria-label="Show cart items" color="inherit">
+              <Badge badgeContent={2} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </>
