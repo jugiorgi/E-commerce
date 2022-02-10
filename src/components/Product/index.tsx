@@ -12,10 +12,10 @@ import useStyles from "./styles";
 
 interface Props {
   product: any;
-  onAddToCart: (productId: string, quantity: number) => void;
+  handleAddToCart: (productId: string, quantity: number) => void;
 }
 
-const Product: React.FC<Props> = ({ product, onAddToCart }) => {
+const Product: React.FC<Props> = ({ product, handleAddToCart }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -29,7 +29,12 @@ const Product: React.FC<Props> = ({ product, onAddToCart }) => {
           <Typography gutterBottom variant="h6" component="h2">
             {product.name}
           </Typography>
-          <Typography gutterBottom variant="subtitle1" component="h2">
+          <Typography
+            gutterBottom
+            variant="subtitle1"
+            component="h2"
+            style={{ marginLeft: "10px" }}
+          >
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
@@ -43,7 +48,7 @@ const Product: React.FC<Props> = ({ product, onAddToCart }) => {
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton
           aria-label="Add to Cart"
-          onClick={() => onAddToCart(product.id, 1)}
+          onClick={() => handleAddToCart(product.id, 1)}
         >
           <AddShoppingCart />
         </IconButton>

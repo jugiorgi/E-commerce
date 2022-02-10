@@ -5,10 +5,10 @@ import useStyles from "./styles";
 
 interface Props {
   products: any;
-  onAddToCart: (productId: string, quantity: number) => void;
+  handleAddToCart: (productId: string, quantity: number) => void;
 }
 
-const Products: React.FC<Props> = ({ products, onAddToCart }) => {
+const Products: React.FC<Props> = ({ products, handleAddToCart }) => {
   const classes = useStyles();
 
   if (!products.length) return <p>Loading...</p>;
@@ -19,7 +19,7 @@ const Products: React.FC<Props> = ({ products, onAddToCart }) => {
       <Grid container justifyContent="center" spacing={2} alignItems="stretch">
         {products.map((product: any) => (
           <Grid key={product.id} item xs={12} sm={4} md={3} lg={3} xl={2}>
-            <Product product={product} onAddToCart={onAddToCart} />
+            <Product product={product} handleAddToCart={handleAddToCart} />
           </Grid>
         ))}
       </Grid>

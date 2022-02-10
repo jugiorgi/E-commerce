@@ -7,9 +7,17 @@ import FilledCart from "../FilledCart";
 
 interface Props {
   cart: any;
+  handleUpdateCardQuantity: (productId: string, quantity: number) => void;
+  handleRemoveFromCart: (productId: string) => void;
+  handleEmptyCart: () => void;
 }
 
-const Cart: React.FC<Props> = ({ cart }) => {
+const Cart: React.FC<Props> = ({
+  cart,
+  handleUpdateCardQuantity,
+  handleRemoveFromCart,
+  handleEmptyCart,
+}) => {
   const classes = useStyles();
 
   return (
@@ -18,7 +26,16 @@ const Cart: React.FC<Props> = ({ cart }) => {
       <Typography className={classes.title} variant="h4" gutterBottom>
         Your Shopping Cart
       </Typography>
-      {!cart.line_items.length ? <EmptyCart /> : <FilledCart cart={cart} />}
+      {!cart.line_items.length ? (
+        <EmptyCart />
+      ) : (
+        <FilledCart
+          cart={cart}
+          handleUpdateCardQuantity={handleUpdateCardQuantity}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}
+        />
+      )}
     </Container>
   );
 };

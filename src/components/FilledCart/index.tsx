@@ -6,16 +6,28 @@ import useStyles from "./styles";
 
 interface Props {
   cart: any;
+  handleUpdateCardQuantity: (productId: string, quantity: number) => void;
+  handleRemoveFromCart: (productId: string) => void;
+  handleEmptyCart: () => void;
 }
 
-const FilledCart: React.FC<Props> = ({ cart }) => {
+const FilledCart: React.FC<Props> = ({
+  cart,
+  handleUpdateCardQuantity,
+  handleRemoveFromCart,
+  handleEmptyCart,
+}) => {
   const classes = useStyles();
   return (
     <>
       <Grid container spacing={3} alignItems="stretch">
         {cart.line_items.map((item: any) => (
           <Grid item xs={12} sm={6} md={3} lg={3} xl={3} key={item.id}>
-            <CartItem cart={item} />
+            <CartItem
+              cart={item}
+              handleUpdateCardQuantity={handleUpdateCardQuantity}
+              handleRemoveFromCart={handleRemoveFromCart}
+            />
           </Grid>
         ))}
       </Grid>
@@ -30,6 +42,7 @@ const FilledCart: React.FC<Props> = ({ cart }) => {
             type="button"
             variant="contained"
             color="secondary"
+            onClick={() => handleEmptyCart()}
           >
             Empty Cart
           </Button>
