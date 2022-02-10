@@ -10,7 +10,12 @@ import { AddShoppingCart } from "@material-ui/icons";
 
 import useStyles from "./styles";
 
-const Product = (product: any) => {
+interface Props {
+  product: any;
+  onAddToCart: (productId: string, quantity: number) => void;
+}
+
+const Product: React.FC<Props> = ({ product, onAddToCart }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -21,19 +26,25 @@ const Product = (product: any) => {
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" noWrap={true}>
             {product.name}
           </Typography>
           <Typography gutterBottom variant="h6" component="h2">
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.description}
-        </Typography>
+        <Typography
+          dangerouslySetInnerHTML={{ __html: product.description }}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart">
+        <IconButton
+          aria-label="Add to Cart"
+          onClick={() => onAddToCart(product.id, 1)}
+        >
           <AddShoppingCart />
         </IconButton>
       </CardActions>

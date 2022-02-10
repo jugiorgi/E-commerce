@@ -14,7 +14,11 @@ import logo from "../../assets/logo.png";
 
 import useStyles from "./styles";
 
-const Navbar: React.FC = () => {
+interface Props {
+  totalItems: number;
+}
+
+const Navbar: React.FC<Props> = ({ totalItems }) => {
   const classes = useStyles();
   return (
     <>
@@ -32,7 +36,7 @@ const Navbar: React.FC = () => {
           <div className={classes.grow} />
           <div className={classes.menuButton}>
             <IconButton aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>

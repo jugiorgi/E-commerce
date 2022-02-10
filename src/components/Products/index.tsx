@@ -3,20 +3,23 @@ import Product from "../Product";
 
 import useStyles from "./styles";
 
-const Products = (products: any) => {
+interface Props {
+  products: any;
+  onAddToCart: (productId: string, quantity: number) => void;
+}
+
+const Products: React.FC<Props> = ({ products, onAddToCart }) => {
   const classes = useStyles();
 
-  const data = products.products;
-
-  if (!data.length) return <p>Loading...</p>;
+  if (!products.length) return <p>Loading...</p>;
 
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
       <Grid container justifyContent="center" spacing={4}>
-        {data.map((product: any) => (
+        {products.map((product: any) => (
           <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
-            <Product {...product} />
+            <Product product={product} onAddToCart={onAddToCart} />
           </Grid>
         ))}
       </Grid>
