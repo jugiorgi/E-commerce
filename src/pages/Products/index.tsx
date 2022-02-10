@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import Product from "../Product";
+import Product from "../../components/Product";
 
 import useStyles from "./styles";
 
