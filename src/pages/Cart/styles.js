@@ -13,6 +13,8 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   emptyButton: {
+    background: theme.palette.red,
+    color: "white",
     minWidth: "150px",
     [theme.breakpoints.down("xs")]: {
       marginBottom: "5px",
@@ -22,6 +24,8 @@ export default makeStyles((theme) => ({
     },
   },
   checkoutButton: {
+    background: theme.palette.confirm,
+    color: "white",
     minWidth: "150px",
   },
   link: {

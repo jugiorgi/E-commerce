@@ -56,9 +56,9 @@ const CartItem: React.FC<Props> = ({
         </div>
 
         <Button
+          className={classes.removeButtom}
           variant="contained"
           type="button"
-          color="secondary"
           onClick={() => handleRemoveFromCart(cart.id)}
         >
           Remove

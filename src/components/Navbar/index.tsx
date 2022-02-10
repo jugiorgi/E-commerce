@@ -25,7 +25,7 @@ const Navbar: React.FC<Props> = ({ totalItems }) => {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar} color="inherit">
+      <AppBar position="fixed" className={classes.appBar} color="primary">
         <Toolbar>
           <Typography
             component={Link}
@@ -51,7 +51,7 @@ const Navbar: React.FC<Props> = ({ totalItems }) => {
                 aria-label="Show cart items"
                 color="inherit"
               >
-                <Badge badgeContent={totalItems} color="secondary">
+                <Badge badgeContent={totalItems} color="error">
                   <ShoppingCart />
                 </Badge>
               </IconButton>

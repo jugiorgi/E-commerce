@@ -56,7 +56,6 @@ const Cart: React.FC<Props> = ({
                 size="large"
                 type="button"
                 variant="contained"
-                color="secondary"
                 onClick={() => handleEmptyCart()}
               >
                 Empty Cart
@@ -66,7 +65,6 @@ const Cart: React.FC<Props> = ({
                 size="large"
                 type="button"
                 variant="contained"
-                color="primary"
                 component={Link}
                 to="/checkout"
               >

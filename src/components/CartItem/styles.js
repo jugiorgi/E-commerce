@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   root: {
     maxWidth: "100%",
     height: "100%",
@@ -24,4 +24,5 @@ export default makeStyles(() => ({
     display: "flex",
     alignItems: "center",
   },
+  removeButtom: { background: theme.palette.red, color: "white" },
 }));
