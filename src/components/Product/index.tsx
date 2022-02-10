@@ -26,10 +26,10 @@ const Product: React.FC<Props> = ({ product, onAddToCart }) => {
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2" noWrap={true}>
+          <Typography gutterBottom variant="h6" component="h2" noWrap={true}>
             {product.name}
           </Typography>
-          <Typography gutterBottom variant="h6" component="h2">
+          <Typography gutterBottom variant="subtitle1" component="h2">
             {product.price.formatted_with_symbol}
           </Typography>
         </div>
