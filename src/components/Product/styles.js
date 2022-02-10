@@ -4,6 +4,9 @@ export default makeStyles(() => ({
   root: {
     maxWidth: "100%",
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   media: {
     height: 0,

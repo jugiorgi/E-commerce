@@ -4,9 +4,12 @@ export default makeStyles(() => ({
   root: {
     maxWidth: "100%",
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   media: {
-    height: 260,
+    height: "260px",
   },
   cardContent: {
     display: "flex",
@@ -14,8 +17,8 @@ export default makeStyles(() => ({
   },
   cartActions: {
     display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
   buttons: {
     display: "flex",

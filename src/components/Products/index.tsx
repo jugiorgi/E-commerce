@@ -16,9 +16,9 @@ const Products: React.FC<Props> = ({ products, onAddToCart }) => {
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
-      <Grid container justifyContent="center" spacing={4}>
+      <Grid container justifyContent="center" spacing={2} alignItems="stretch">
         {products.map((product: any) => (
-          <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
+          <Grid key={product.id} item xs={12} sm={4} md={3} lg={3} xl={2}>
             <Product product={product} onAddToCart={onAddToCart} />
           </Grid>
         ))}

@@ -12,9 +12,9 @@ const FilledCart: React.FC<Props> = ({ cart }) => {
   const classes = useStyles();
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} alignItems="stretch">
         {cart.line_items.map((item: any) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+          <Grid item xs={12} sm={6} md={3} lg={3} xl={3} key={item.id}>
             <CartItem cart={item} />
           </Grid>
         ))}

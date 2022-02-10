@@ -26,7 +26,7 @@ const Product: React.FC<Props> = ({ product, onAddToCart }) => {
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h6" component="h2" noWrap={true}>
+          <Typography gutterBottom variant="h6" component="h2">
             {product.name}
           </Typography>
           <Typography gutterBottom variant="subtitle1" component="h2">
