@@ -55,30 +55,28 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Navbar totalItems={cart.total_items} />
+      <Navbar totalItems={cart.total_items} />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Products products={products} handleAddToCart={handleAddToCart} />
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={cart}
-                handleUpdateCardQuantity={handleUpdateCardQuantity}
-                handleRemoveFromCart={handleRemoveFromCart}
-                handleEmptyCart={handleEmptyCart}
-              />
-            }
-          />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Products products={products} handleAddToCart={handleAddToCart} />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              handleUpdateCardQuantity={handleUpdateCardQuantity}
+              handleRemoveFromCart={handleRemoveFromCart}
+              handleEmptyCart={handleEmptyCart}
+            />
+          }
+        />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
     </Router>
   );
 }
