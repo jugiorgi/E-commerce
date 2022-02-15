@@ -15,29 +15,47 @@ import * as React from "react";
 import useStyles from "./styles";
 import api from "../../services/api";
 
+interface CategoryProps {
+  id: number;
+  name: string;
+}
+
 const Sidebar: React.FC = () => {
   const classes = useStyles();
-  const [categories, setCategories] = useState({});
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState(0);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    api.get("/categories").then((response) => {
+      const { content } = response.data;
+      setCategories(content);
+    });
+  }, []);
+
+  function handleClicked(item: CategoryProps) {
+    setCategory(item.id);
+  }
 
   return (
-    <Box>
+    <Box color="primary">
       <Drawer
         variant="permanent"
         anchor="left"
-        PaperProps={{ style: { marginTop: "60px" } }}
+        classes={{ paper: classes.container }}
       >
         <Toolbar>
           <Typography>Categorias</Typography>
         </Toolbar>
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxOutlined /> : <InboxOutlined />}
-              </ListItemIcon> */}
-              <ListItemText primary={text} />
+          {categories.map((item: CategoryProps, index) => (
+            <ListItem
+              className={`${category === item.id && classes.listItem}`}
+              button
+              key={index}
+              alignItems="flex-start"
+              onClick={() => handleClicked(item)}
+            >
+              <ListItemText primary={item.name} />
             </ListItem>
           ))}
         </List>

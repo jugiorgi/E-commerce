@@ -7,6 +7,7 @@ const theme = createTheme({
     },
     red: "#ff1744",
     confirm: "#009688",
+    white: "#fff",
   },
 });
 
