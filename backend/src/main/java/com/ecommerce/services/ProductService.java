@@ -71,6 +71,12 @@ public class ProductService {
         }
     }
 
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> findAllByCategoryPaged(Long categoryId, Pageable pageable) {
+        Page<Product> page = repository.findAllByCategoriesId(categoryId, pageable);
+        return page.map(product -> new ProductDTO(product, product.getCategories()));
+    }
+
     private void copyDtoToEntity(ProductDTO dto, Product entity) {
 
         entity.setName(dto.getName());
@@ -85,4 +91,5 @@ public class ProductService {
             entity.getCategories().add(category);
         }
     }
+
 }

@@ -50,4 +50,10 @@ public class ProductController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-} 
+
+    @GetMapping(value = "/category/{categoryId}")
+    public ResponseEntity<Page<ProductDTO>> findAllByCategory(@PathVariable Long categoryId, Pageable pageable) {
+        Page<ProductDTO> list = service.findAllByCategoryPaged(categoryId, pageable);
+        return ResponseEntity.ok().body(list);
+    }
+}
