@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  width: 100%;
   height: 60px;
   background: var(--primary-dark);
+  z-index: 2;
+  position: sticky;
+  top: 0;
 `;
 
 export const Content = styled.div`

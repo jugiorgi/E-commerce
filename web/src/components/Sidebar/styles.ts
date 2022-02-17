@@ -6,6 +6,8 @@ export const Container = styled.aside`
   background: var(--primary-dark);
   display: flex;
   flex-direction: column;
+  position: fixed;
+  z-index: 2;
 `;
 
 export const Title = styled.div`
