@@ -31,6 +31,9 @@ public class ProductDTO implements Serializable {
 
     private String imgUrl;
 
+    @DecimalMax(value = "10", message = "A nota do produto não pode ser maior que 10")
+    private Double rateAverage;
+
     @PastOrPresent(message = "A data do produto não pode ser futura")
     private Instant date;
 
@@ -40,13 +43,14 @@ public class ProductDTO implements Serializable {
     public ProductDTO() {
     }
 
-    public ProductDTO(Long id, String name, String description, Double price, String imgUrl, Instant date) {
+    public ProductDTO(Long id, String name, String description, Double price, String imgUrl, Instant date, Double rateAverage) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.imgUrl = imgUrl;
         this.date = date;
+        this.rateAverage = rateAverage;
     }
 
     public ProductDTO(Product entity) {
@@ -56,6 +60,7 @@ public class ProductDTO implements Serializable {
         this.price = entity.getPrice();
         this.imgUrl = entity.getImgUrl();
         this.date = entity.getDate();
+        this.rateAverage = entity.getRateAverage();
     }
 
     public ProductDTO(Product entity, Set<Category> categories) {

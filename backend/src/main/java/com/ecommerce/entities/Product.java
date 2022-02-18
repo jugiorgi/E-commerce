@@ -24,6 +24,8 @@ public class Product implements Serializable {
     private String description;
     private Double price;
     private String imgUrl;
+    private Double rateAverage = 0.0;
+    private Long rateQuantity = 0L;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant date;
