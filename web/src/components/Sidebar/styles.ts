@@ -30,7 +30,7 @@ export const Category = styled.button.attrs(
   border: none;
   border-right: 5px solid
     ${(props) =>
-      props.isSelected ? "var(--secondary-light)" : "var(--text-body)"};
+      props.isSelected ? "var(--secondary-light)" : "var(--grey-light)"};
   padding: 0 10px;
   display: flex;
   flex-direction: flex-start;
@@ -44,7 +44,7 @@ export const Category = styled.button.attrs(
 
   svg {
     color: ${(props) =>
-      props.isSelected ? "var(--secondary-light)" : "var(--text-body)"};
+      props.isSelected ? "var(--secondary-light)" : "var(--grey-light)"};
   }
 
   :hover {

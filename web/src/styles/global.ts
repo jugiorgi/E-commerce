@@ -6,10 +6,11 @@ export const GlobalStyle = createGlobalStyle`
     --black: #000000;
     --red: #E52E4D;
     --background: #f2f0f5;
-    --text-title: #363f5f;
-    --text-body: #969cb3;
+    --text-title: #A9A9A9;
+    --text-body: #DCDCDC;
     --primary: #002f54;
     --primary-light: #395881;
+    --grey-light: #363f5f;
     --primary-dark: #00042b;
     --secondary: #ffff56;
     --secondary-light: #ffff8a;

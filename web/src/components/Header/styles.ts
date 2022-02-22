@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten } from "polished";
 
 export const Container = styled.header`
   width: 100%;
@@ -25,6 +26,16 @@ export const Content = styled.div`
 export const Profile = styled.div`
   display: flex;
   align-items: center;
+
+  span {
+    font-size: 12px;
+  }
+
+  strong {
+    font-size: 12px;
+    font-weight: bold;
+    color: ${lighten(0.25, "#363f5f")};
+  }
 `;
 
 export const ProfileText = styled.div`
@@ -36,7 +47,7 @@ export const ProfileText = styled.div`
 `;
 
 export const Line = styled.div`
-  background: var(--text-title);
+  background: var(--grey-light);
   width: 1px;
   height: 40px;
   margin: 0 10px;
