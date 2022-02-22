@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 import Sidebar from "../../components/Sidebar";
@@ -40,27 +40,44 @@ const Dashboard: React.FC = () => {
     addProduct(id);
   }
 
-  useEffect(() => {
-    async function loadProducts() {
-      const response = await api.get("products");
-      const productsFormatted = response.data.content.map(
-        (product: Products) => {
-          return {
-            ...product,
-            priceFormatted: formatPrice(product.price),
-          };
-        }
-      );
-
-      setProducts(productsFormatted);
+  function handleChangeCategory(id: number) {
+    if (id === 0) {
+      loadProducts();
     }
+    loadProductsByCategory(id);
+  }
 
+  async function loadProductsByCategory(id: number) {
+    const response = await api.get(`/products/category/${id}`);
+    const productsFormatted = response.data.content.map((product: Products) => {
+      return {
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      };
+    });
+
+    setProducts(productsFormatted);
+  }
+
+  async function loadProducts() {
+    const response = await api.get("products");
+    const productsFormatted = response.data.content.map((product: Products) => {
+      return {
+        ...product,
+        priceFormatted: formatPrice(product.price),
+      };
+    });
+
+    setProducts(productsFormatted);
+  }
+
+  useEffect(() => {
     loadProducts();
   }, []);
 
   return (
     <Container>
-      <Sidebar />
+      <Sidebar change={(data) => handleChangeCategory(data)} />
       <Content>
         <Catalog
           container

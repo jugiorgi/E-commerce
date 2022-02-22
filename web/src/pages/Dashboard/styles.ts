@@ -11,7 +11,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 200px;
-  align-items: center;
+  width: 100vw;
 `;
 
 export const Catalog = styled(Grid)`
