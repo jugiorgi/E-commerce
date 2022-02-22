@@ -12,18 +12,6 @@ interface UpdateProductAmount {
   amount: number;
 }
 
-interface ProductAPI {
-  id: number;
-  description: string;
-  date: string;
-  imgUrl: string;
-  name: string;
-  price: number;
-  rateAverage: number;
-  priceFormatted: number;
-  categories: Array<Categories>;
-}
-
 interface CartContextData {
   cart: Products[];
   addProduct: (productId: number) => Promise<void>;
@@ -46,19 +34,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const addProduct = async (productId: number) => {
     try {
-      // const { data: stockData } = await api.get<Stock>(`stock/${productId}`);
-
       const productExistsInCart = cart.find(
         (productCart) => productCart.id === productId
       );
-
-      // const amount = productExistsInCart ? productExistsInCart.amount + 1 : 1;
-
-      // if (amount > stockData.amount) {
-      //   toast.error("Quantidade solicitada fora de estoque");
-
-      //   return;
-      // }
 
       if (productExistsInCart) {
         const addNewProduct = cart.map((productCart) => {
@@ -78,7 +56,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         return;
       }
 
-      const { data: productData } = await api.get<ProductAPI>(
+      const { data: productData } = await api.get<Products>(
         `products/${productId}`
       );
 
@@ -89,7 +67,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
       const productsArray = [...cart, { ...newProductToAddInCart }];
 
-      // setCart(productsArray);
+      setCart(productsArray);
 
       localStorage.setItem("@Ecommerce:cart", JSON.stringify(productsArray));
     } catch {
@@ -128,13 +106,6 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       if (amount < 1) {
         throw new Error("Alteraçáo inválida");
       }
-
-      // const { data: stockData } = await api.get(`/stock/${productId}`);
-
-      // if (stockData.amount <= amount) {
-      //   toast.error("Quantidade solicitada fora de estoque");
-      //   return;
-      // }
 
       const updateProductAmountItens = cart.map((productCart) => {
         if (productCart.id === productId) {
