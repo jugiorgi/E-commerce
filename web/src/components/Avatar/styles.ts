@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   width: 55px;
   height: 55px;
-  background: linear-gradient(0.9turn, var(--secondary), var(--primary-dark));
+  background: var(--secondary);
   border-radius: 50%;
 `;
 

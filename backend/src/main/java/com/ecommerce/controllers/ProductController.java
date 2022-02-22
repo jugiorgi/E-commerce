@@ -25,6 +25,12 @@ public class ProductController {
         return ResponseEntity.ok().body(list);
     }
 
+    @GetMapping(value = "/search")
+    public ResponseEntity<Page<ProductDTO>> findAllByName(@RequestParam String name, Pageable pageable) {
+        Page<ProductDTO> list = service.findAllByNamePaged(name, pageable);
+        return ResponseEntity.ok().body(list);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
         ProductDTO dto = service.findById(id);
@@ -56,4 +62,6 @@ public class ProductController {
         Page<ProductDTO> list = service.findAllByCategoryPaged(categoryId, pageable);
         return ResponseEntity.ok().body(list);
     }
+
+
 }

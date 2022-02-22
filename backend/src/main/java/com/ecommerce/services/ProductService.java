@@ -35,6 +35,12 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
+    public Page<ProductDTO> findAllByNamePaged(String name, Pageable pageable) {
+        Page<Product> page = repository.findByNameContainingIgnoreCase(name, pageable);
+        return page.map(product -> new ProductDTO(product, product.getCategories()));
+    }
+
+    @Transactional(readOnly = true)
     public ProductDTO findById(Long id) {
         Optional<Product> obj = repository.findById(id);
         Product entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
