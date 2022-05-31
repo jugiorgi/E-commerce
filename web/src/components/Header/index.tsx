@@ -1,6 +1,6 @@
 import React from "react";
 import { MdLogout, MdShoppingCart } from "react-icons/md";
-import drew from "../../assets/drew.png";
+import logo from "../../assets/logo.png";
 import Avatar from "../Avatar";
 import { Container, Content, Profile, ProfileText, Line } from "./styles";
 import { useCart } from "../../hooks/useCart";
@@ -15,16 +15,16 @@ const Header: React.FC = () => {
     <Container>
       <Content>
         <Link to="/">
-          <img src={drew} alt="E-commerce" />
+          <img src={logo} alt="E-commerce" />
         </Link>
 
         <Profile>
           <ProfileText>
             <span>Seja bem-vindo</span>
-            <strong>Justin Bieber</strong>
+            <strong>Julia Giorgi</strong>
           </ProfileText>
 
-          <Avatar url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR6fHlTtbogkB9WHZ7GBRnpdNJVtVkviXskw&usqp=CAU" />
+          <Avatar url="https://64.media.tumblr.com/6fd045c6d229801e5214e48f76230833/c9b92d7eb948b99b-f3/s540x810/38f42300d82bd8a0b40bcfc6214b2719b6018a05.jpg" />
           {location.pathname === "/" && (
             <div>
               <IconButton
